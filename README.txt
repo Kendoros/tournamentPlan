@@ -1,4 +1,4 @@
-Welcome to my Project the so calle tournamentPlan.
+Welcome to my Project the so called tournamentPlan.
 
 In this project i want to combine ideas from different tournament trees into one HTML5 based site which should go online for free on www.bsnetworx.at
 
