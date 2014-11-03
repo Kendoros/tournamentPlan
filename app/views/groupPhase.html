@@ -1,0 +1,49 @@
+<div>
+<div ng-show="!groupGenerated"> 
+	<label>Wie viele Gruppen sollen generiert werden? </label>
+	<input type="number" ng-model="groupCount"/> 
+	<label>Wie viele Spieler pro Gruppe? </label>
+	<input type="number" ng-model="groupSize" /> 
+
+	<button ng-click="generateGroups(groupCount, groupSize)">Generieren</button>
+</div>
+<div ng-show="groupGenerated"> 
+	<ul class="menu">
+		
+		<li ng-repeat="group in groups">
+			<a href="#" ng-click="changeGroupTab($index)">Gruppe {{groupNames[$index]}}</a>
+		</li>
+	</ul>
+	
+	<div>
+		<table >
+			<th>Spieler</th>
+			<th>Punkte</th>
+			<th>Gruppenrestpunkte</th>
+
+			
+			<tr ng-repeat="groupEntry in groups[displayGroupIndex].entries">
+				<td><select ng-model="groupEntry.playerId" ng-options="player.id as player.name for player in playerList"></select></td>
+				<td> <label>{{groupEntry.punkte}}<label> </td>
+				<td> <label>{{groupEntry.gruppenRest}}<label> </td>				
+			</tr>
+		</table>
+		<table >
+			<th>Spieler 1</th>
+			<th>Punkte 1</th>
+			<th>Punkte 2</th>
+			<th>Spieler 2</th>
+			
+		<tr ng-repeat="matchup in groups[displayGroupIndex].matchups">
+			<td><select ng-disabled="true" ng-model="matchup.playerA" ng-options="player.id as player.name for player in playerList"></select></td>
+			<td> <input type="number" ng-model="matchup.pointsA"></td>
+			<td> <input type="number" ng-model="matchup.pointsB"</td>			
+			<td><select ng-disabled="true" ng-model="matchup.playerB" ng-options="player.id as player.name for player in playerList"></select></td>
+		
+		</tr>
+		</table>
+	</div>
+
+</div>
+
+</div> 
