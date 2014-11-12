@@ -1,21 +1,25 @@
 <div>
 
-<img class="add-player-button" src="img/add.png" ng-click="addPlayer()"></img>
-<label>Gesamtspieler: {{playerCount}} </label>
-	
-	<table ng-show="playerCount > 0">
-		<th>Position</th>
-		<th>Name</th>
-		<th>Punkte</th>
-		<th>Codename</th>
-		<th>entfernen</th>
-		
-		<tr ng-repeat="player in playerList">
-			<td> <label>{{player.position}}<label> </td>
-			<td> <input type="text" ng-model="player.name" name="Name"/> </td>
-			<td><input type="text" ng-model="player.points" name="Punkte"/> </td>
-			<td><input type="text" ng-model="player.code" name="Kürzel"/> </td>
-			<td><img class="remove-player-button" src="img/remove.png" ng-click="removePlayer($index)"></img></td>
-		</tr>
-	</table>
+    <img class="add-player-button" src="img/add.png" ng-click="addPlayer()"/>
+    <label>Gesamtspieler: {{playerCount}} </label>
+
+    <table ng-show="playerCount > 0">
+        <th>Position</th>
+        <th>Name</th>
+        <th>Codename</th>
+        <th>Zuordnung</th>
+        <th>Restpunkte</th>
+        <th>entfernen</th>
+
+        <tr ng-repeat="player in playerList">
+            <td class="player-list-index"><label>{{player.position}}</label></td>
+            <td class="player-list-input"><input type="text" ng-model="player.name" name="Name"/></td>
+            <td class="player-list-input"><input type="text" ng-model="player.code" name="KÃ¼rzel"/></td>
+            <td class="player-list-input"><select ng-model="player.groupAssignment"
+                                                  ng-options="groupName.code as groupName.name for groupName in groupsForDropDown"></select>
+            </td>
+            <td class="player-list-input"><label name="Punkte">{{player.points}}</label></td>
+            <td><img class="remove-player-button" src="img/remove.png" ng-click="removePlayer($index)"/></td>
+        </tr>
+    </table>
 </div> 
