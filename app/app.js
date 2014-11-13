@@ -109,6 +109,8 @@
             if ($scope.data.usedGroups) {
                 if ($scope.data.usedGroups[index]) {
                     $scope.data.selectedGroup.groupAssignment = $scope.data.usedGroups[index].code;
+                    $scope.selectedGroup = {};
+                    $scope.selectedGroup.groupAssignment = $scope.data.usedGroups[index].code;
                 }
             }
         }
