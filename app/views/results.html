@@ -1,0 +1,9 @@
+<div class="results">
+
+    <div ng-repeat="player in playerList | orderBy:'rank'">
+        <label>Platz {{player.rank}}: {{player.name}} - Restpunkte (Gruppenphase):
+            {{player.points}}
+            - Punkte (Gruppenphase): {{player.winPoints}}</label>
+    </div>
+
+</div>

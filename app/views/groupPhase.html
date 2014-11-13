@@ -9,20 +9,44 @@
         <div ng-show="selectedGroup">
             <table>
                 <th>Name</th>
-                <th>Codename</th>
                 <th>Restpunkte</th>
+                <th>Siegpunkte</th>
 
-                <tr ng-repeat="player in playerList | filter:selectedGroup:strict">
+                <tr ng-repeat="player in playerList | filter:selectedGroup:strict | orderBy:'-winPoints'">
                     {{player.name}}
                     <td class="player-list-group"><label>{{player.name}}</label></td>
-                    <td class="player-list-group"><label>{{player.code}}</label></td>
                     <td class="player-list-group"><label>{{player.points}}</label></td>
+                    <td class="player-list-group"><label>{{player.winPoints}}</label></td>
 
                 </tr>
             </table>
 
+            <br/><br/>
+
+            <div ng-repeat="group in groups | filter:selectedGroup:strict">
+                <div ng-repeat="match in group.matchups">
+
+                    <label ng-class="getClassForGroup(match.winPlayerA)">{{match.playerA.name}}</label>
+                    <button type="button" ng-click="clickWinButtonGroupPhase( match, match.playerA, group)">W
+                    </button>
+                    <input ng-class="getClassForGroup(match.winPlayerA)" class="group-phase-input" type="number" min="0"
+                           max="999"
+                           ng-model="match.pointsPlayerA"
+                           ng-change="matchChange(group)"/>
+
+                    <button type="button" ng-click="clickTieButtonGroupPhase($event, match, group)">U</button>
 
 
+                    <input ng-class="getClassForGroup(match.winPlayerB)" class="group-phase-input" type="number" min="0"
+                           max="999"
+                           ng-model="match.pointsPlayerB"
+                           ng-change="matchChange(group)"/>
+                    <button type="button" ng-click="clickWinButtonGroupPhase( match, match.playerB, group)">W
+                    </button>
+                    <label ng-class="getClassForGroup(match.winPlayerB)">{{match.playerB.name}}</label>
+
+                </div>
+            </div>
 
 
         </div>

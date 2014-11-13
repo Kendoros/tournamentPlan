@@ -6,20 +6,25 @@
     <table ng-show="playerCount > 0">
         <th>Position</th>
         <th>Name</th>
-        <th>Codename</th>
         <th>Zuordnung</th>
         <th>Restpunkte</th>
+        <th>Punkte</th>
         <th>entfernen</th>
 
         <tr ng-repeat="player in playerList">
             <td class="player-list-index"><label>{{player.position}}</label></td>
             <td class="player-list-input"><input type="text" ng-model="player.name" name="Name"/></td>
-            <td class="player-list-input"><input type="text" ng-model="player.code" name="Kürzel"/></td>
             <td class="player-list-input"><select ng-model="player.groupAssignment"
                                                   ng-options="groupName.code as groupName.name for groupName in groupsForDropDown"></select>
             </td>
-            <td class="player-list-input"><label name="Punkte">{{player.points}}</label></td>
+            <td class="player-list-input"><label>{{player.points}}</label></td>
+            <td class="player-list-input"><label>{{player.winPoints}}</label></td>
             <td><img class="remove-player-button" src="img/remove.png" ng-click="removePlayer($index)"/></td>
         </tr>
     </table>
-</div> 
+    <div ng-show="playerCount > 0">
+        <button ng-click="generateMatchups()">Gruppenspiele Generieren</button>
+        <label>ACHTUNG! Bereits generierte Spieler werden überschrieben!</label>
+    </div>
+</div>
+

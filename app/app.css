@@ -42,3 +42,52 @@ img.remove-player-button {
 td.player-list-input {
     padding: 5px;
 }
+
+img#logo {
+    width: 10%;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+}
+
+.player-won {
+    background: lightgreen;
+}
+
+.player-lost {
+    background: crimson;
+}
+
+.player-tie {
+    background: lightsalmon;
+}
+
+input.group-phase-input {
+    width: 50px;
+}
+
+input.ko-phase-input {
+    width: 50px;
+}
+
+.ko-groups {
+    float: left;
+}
+
+.ko-matchup {
+    margin: 10px;
+}
+
+.winner-half.ko-groups {
+    margin-top: 57px;
+}
+
+.winner-final.ko-groups {
+    margin-top: 88px;
+}
+
+.winner-announcement {
+    float: left;
+    font-size: 30px;
+}
