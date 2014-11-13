@@ -1,18 +1,18 @@
 <div>
-    <div ng-show="usedGroups.length > 0">
+    <div ng-show="data.usedGroups.length > 0">
         <ul class="menu">
-            <li ng-repeat="group in usedGroups">
-                <a href="#" ng-click="changeGroupTab($index)">Gruppe {{usedGroups[$index].code}}</a>
+            <li ng-repeat="group in data.usedGroups">
+                <a href="#" ng-click="changeGroupTab($index)">Gruppe {{data.usedGroups[$index].code}}</a>
             </li>
         </ul>
 
-        <div ng-show="selectedGroup">
+        <div ng-show="data.selectedGroup">
             <table>
                 <th>Name</th>
                 <th>Restpunkte</th>
                 <th>Siegpunkte</th>
 
-                <tr ng-repeat="player in playerList | filter:selectedGroup:strict | orderBy:'-winPoints'">
+                <tr ng-repeat="player in data.playerList | filter:selectedGroup:strict | orderBy:'-winPoints'">
                     {{player.name}}
                     <td class="player-list-group"><label>{{player.name}}</label></td>
                     <td class="player-list-group"><label>{{player.points}}</label></td>
@@ -23,7 +23,7 @@
 
             <br/><br/>
 
-            <div ng-repeat="group in groups | filter:selectedGroup:strict">
+            <div ng-repeat="group in data.groups | filter:selectedGroup:strict">
                 <div ng-repeat="match in group.matchups">
 
                     <label ng-class="getClassForGroup(match.winPlayerA)">{{match.playerA.name}}</label>
@@ -52,7 +52,7 @@
         </div>
 
     </div>
-    <div ng-show="usedGroups.length <= 0">
+    <div ng-show="data.usedGroups.length <= 0">
         Bitte weise den Spielern eine Gruppe zu um die Gruppenphase darstellen zu können.
     </div>
 

@@ -1,6 +1,6 @@
 <div class="results">
 
-    <div ng-repeat="player in playerList | orderBy:'rank'">
+    <div ng-repeat="player in data.playerList | orderBy:'rank'">
         <label>Platz {{player.rank}}: {{player.name}} - Restpunkte (Gruppenphase):
             {{player.points}}
             - Punkte (Gruppenphase): {{player.winPoints}}</label>

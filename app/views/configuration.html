@@ -1,10 +1,22 @@
 <div>
     <div>
         <label>Punktevergabe</label> <br/>
-        <label>Sieg</label> <input type="number" ng-model="configuration.points.win"> <br/>
-        <label>Unentschieden</label> <input type="number" ng-model="configuration.points.tie"> <br/>
-        <label>Niederlage</label> <input type="number" ng-model="configuration.points.loose"> <br/>
+        <label>Sieg</label> <input type="number" ng-model="data.configuration.points.win"> <br/>
+        <label>Unentschieden</label> <input type="number" ng-model="data.configuration.points.tie"> <br/>
+        <label>Niederlage</label> <input type="number" ng-model="data.configuration.points.loose"> <br/>
     </div>
 
 
+
+    <div>
+        <label>EXPORT</label>
+        <button type="button" ng-click="exportAll()">Exportieren</button>
+        <textarea ng-model="textForExport"></textarea>
+    </div>
+
+    <div>
+        <label>IMPORT</label>
+        <button type="button" ng-click="importAll($event)">importieren</button>
+        <textarea ng-model="textForImport"></textarea>
+    </div>
 </div>

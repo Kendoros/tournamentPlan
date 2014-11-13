@@ -1,225 +1,225 @@
 <div>
-<div ng-show="usedGroups.length > 0">
-<div ng-show="!koPhaseGenerated">
+<div ng-show="data.usedGroups.length > 0">
+<div ng-show="!data.koPhaseGenerated">
     <label>Gruppenphase abgeschlossen?</label>
     <button type="button" ng-click="generateKoPhase()">KO-Phase generieren</button>
 </div>
-<div ng-show="koPhaseGenerated">
-    <ul class="menu">
-        <li><a href="#" class="listButton" ng-click="changeKoPhase(0)">Winner Bracket</a></li>
-        <li><a href="#" class="listButton" ng-click="changeKoPhase(1)">Loser Bracket</a></li>
-    </ul>
+<div ng-show="data.koPhaseGenerated">
+<ul class="menu">
+    <li><a href="#" class="listButton" ng-click="changeKoPhase(0)">Winner Bracket</a></li>
+    <li><a href="#" class="listButton" ng-click="changeKoPhase(1)">Loser Bracket</a></li>
+</ul>
 
 
-    <div ng-show="koPhase === 'winner'">
-        <!--WINNER BRACKET-->
-        <div class="winner-quaters ko-groups">
-            Viertelfinale
-            <div class="winner-quaters-match ko-matchup" ng-repeat="quater in winnerBracket.quater">
-                <select ng-class="getClassForGroup(quater.winPlayerA)" ng-model="quater.playerA"
-                        ng-options="player.name for player in playerList"></select>
-                <input ng-class="getClassForGroup(quater.winPlayerA)"
-                       class="ko-phase-input"
-                       type="number"
-                       ng-model="quater.pointsPlayerA">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseQuater(quater, quater.playerA, quater.playerB, $index)">W
-                </button>
-                </br>
-                <select ng-class="getClassForGroup(quater.winPlayerB)" ng-model="quater.playerB"
-                        ng-options="player.name for player in playerList"></select>
-                <input ng-class="getClassForGroup(quater.winPlayerB)"
-                       class="ko-phase-input"
-                       type="number"
-                       ng-model="quater.pointsPlayerB">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseQuater(quater, quater.playerB, quater.playerA, $index)">W
-                </button>
-            </div>
-        </div>
-        <div class="winner-half ko-groups">
-            Halbfinale
-            <div class="winner-half-match ko-matchup" ng-repeat="half in winnerBracket.half">
-                <label ng-class="getClassForGroup(half.winPlayerA)">{{half.playerA.name}}</label>
-                <input ng-class="getClassForGroup(half.winPlayerA)" type="number" class="ko-phase-input"
-                       ng-model="half.pointsPlayerA">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseHalf(half, half.playerA, half.playerB, $index)">W
-                </button>
-                </br>
-                <label ng-class="getClassForGroup(half.winPlayerB)">{{half.playerB.name}}</label>
-                <input ng-class="getClassForGroup(half.winPlayerB)" type="number" class="ko-phase-input"
-                       ng-model="half.pointsPlayerB">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseHalf(half, half.playerB, half.playerA, $index)">W
-                </button>
-            </div>
-        </div>
-        <div class="winner-final ko-groups">
-            Finale
-            <div class="winner-final-match ko-matchup" ng-repeat="final in winnerBracket.final">
-                <label ng-class="getClassForGroup(final.winPlayerA)">{{final.playerA.name}}</label>
-                <input ng-class="getClassForGroup(final.winPlayerA)" type="number" class="ko-phase-input"
-                       ng-model="final.pointsPlayerA">
-                <button type="button" ng-click="clickWinButtonKoPhaseFinals(final, final.playerA)">W</button>
-                </br>
-                <label ng-class="getClassForGroup(final.winPlayerB)">{{final.playerB.name}}</label>
-                <input ng-class="getClassForGroup(final.winPlayerB)" type="number" class="ko-phase-input"
-                       ng-model="final.pointsPlayerB">
-                <button type="button" ng-click="clickWinButtonKoPhaseFinals(final, final.playerB)">W</button>
-            </div>
-            Spiel um Platz 3
-            <div class="winner-third-match ko-matchup" ng-repeat="third in winnerBracket.third">
-                <label ng-class="getClassForGroup(third.winPlayerA)">{{third.playerA.name}}</label>
-                <input ng-class="getClassForGroup(third.winPlayerA)" type="number" class="ko-phase-input"
-                       ng-model="third.pointsPlayerA">
-                <button type="button" ng-click="clickWinButtonKoPhaseThird(third, third.playerA)">W</button>
-                </br>
-                <label ng-class="getClassForGroup(third.winPlayerB)">{{third.playerB.name}}</label>
-                <input ng-class="getClassForGroup(third.winPlayerB)" type="number" class="ko-phase-input"
-                       ng-model="third.pointsPlayerB">
-                <button type="button" ng-click="clickWinButtonKoPhaseThird(third, third.playerB)">W</button>
-            </div>
+<div ng-show="data.koPhase === 'winner'">
+    <!--WINNER BRACKET-->
+    <div class="winner-quaters ko-groups">
+        Viertelfinale
+        <div class="winner-quaters-match ko-matchup" ng-repeat="quater in data.winnerBracket.quater">
+            <select ng-class="getClassForGroup(quater.winPlayerA)" ng-model="quater.playerA"
+                    ng-options="player.name for player in playerList"></select>
+            <input ng-class="getClassForGroup(quater.winPlayerA)"
+                   class="ko-phase-input"
+                   type="number"
+                   ng-model="quater.pointsPlayerA">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseQuater(quater, quater.playerA, quater.playerB, $index)">W
+            </button>
+            </br>
+            <select ng-class="getClassForGroup(quater.winPlayerB)" ng-model="quater.playerB"
+                    ng-options="player.name for player in playerList"></select>
+            <input ng-class="getClassForGroup(quater.winPlayerB)"
+                   class="ko-phase-input"
+                   type="number"
+                   ng-model="quater.pointsPlayerB">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseQuater(quater, quater.playerB, quater.playerA, $index)">W
+            </button>
         </div>
     </div>
-    <div ng-show="koPhase === 'loser'">
-        <!--LOSER BRACKET-->
-        <div class="loser-fiveeight ko-groups">
-            Platz 5 - 8
-            <div class="loser-fiveeight-match ko-matchup" ng-repeat="fiveEight in loserBracket.fiveEight">
-                <label ng-class="getClassForGroup(fiveEight.winPlayerA)">{{fiveEight.playerA.name}}</label>
-                <input ng-class="getClassForGroup(fiveEight.winPlayerA)"
-                       class="ko-phase-input"
-                       type="number"
-                       ng-model="fiveEight.pointsPlayerA">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseFiveEight(fiveEight, fiveEight.playerA, fiveEight.playerB, $index)">
-                    W
-                </button>
-                </br>
-                <label ng-class="getClassForGroup(fiveEight.winPlayerB)">{{fiveEight.playerB.name}}</label>
-                <input ng-class="getClassForGroup(fiveEight.winPlayerB)"
-                       class="ko-phase-input"
-                       type="number"
-                       ng-model="fiveEight.pointsPlayerB">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseFiveEight(fiveEight, fiveEight.playerB, fiveEight.playerA, $index)">
-                    W
-                </button>
-            </div>
-            Platz 9 - 12 (Gruppen 3te)
-            <div class="loser-nineTwelve-match ko-matchup" ng-repeat="nineTwelve in loserBracket.nineTwelve">
-                <select ng-class="getClassForGroup(nineTwelve.winPlayerA)" ng-model="nineTwelve.playerA"
-                        ng-options="player.name for player in playerList"></select>
-                <input ng-class="getClassForGroup(nineTwelve.winPlayerA)"
-                       class="ko-phase-input"
-                       type="number"
-                       ng-model="nineTwelve.pointsPlayerA">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseNineTwelve(nineTwelve, nineTwelve.playerA, nineTwelve.playerB, $index)">
-                    W
-                </button>
-                </br>
-                <select ng-class="getClassForGroup(nineTwelve.winPlayerB)" ng-model="nineTwelve.playerB"
-                        ng-options="player.name for player in playerList"></select>
-                <input ng-class="getClassForGroup(nineTwelve.winPlayerB)"
-                       class="ko-phase-input"
-                       type="number"
-                       ng-model="nineTwelve.pointsPlayerB">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseNineTwelve(nineTwelve, nineTwelve.playerB, nineTwelve.playerA, $index)">
-                    W
-                </button>
-            </div>
-        </div>
-        <div class="loser-sevenEight ko-groups">
-            Platz 7 - 8
-            <div class="loser-sevenEight-match ko-matchup" ng-repeat="sevenEight in loserBracket.sevenEight">
-                <label ng-class="getClassForGroup(sevenEight.winPlayerA)">{{sevenEight.playerA.name}}</label>
-                <input ng-class="getClassForGroup(sevenEight.winPlayerA)" type="number" class="ko-phase-input"
-                       ng-model="sevenEight.pointsPlayerA">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseToSetWinners(sevenEight, sevenEight.playerA, 7)">
-                    W
-                </button>
-                </br>
-                <label ng-class="getClassForGroup(sevenEight.winPlayerB)">{{sevenEight.playerB.name}}</label>
-                <input ng-class="getClassForGroup(sevenEight.winPlayerB)" type="number" class="ko-phase-input"
-                       ng-model="sevenEight.pointsPlayerB">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseToSetWinners(sevenEight, sevenEight.playerB, 7)">
-                    W
-                </button>
-            </div>
-            Platz 11 - 12
-            <div class="loser-elevenTwelve-match ko-matchup" ng-repeat="elevenTwelve in loserBracket.elevenTwelve">
-                <label ng-class="getClassForGroup(elevenTwelve.winPlayerA)">{{elevenTwelve.playerA.name}}</label>
-                <input ng-class="getClassForGroup(elevenTwelve.winPlayerA)" type="number" class="ko-phase-input"
-                       ng-model="elevenTwelve.pointsPlayerA">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseToSetWinners(elevenTwelve, elevenTwelve.playerA, 11)">
-                    W
-                </button>
-                </br>
-                <label ng-class="getClassForGroup(elevenTwelve.winPlayerB)">{{elevenTwelve.playerB.name}}</label>
-                <input ng-class="getClassForGroup(elevenTwelve.winPlayerB)" type="number" class="ko-phase-input"
-                       ng-model="elevenTwelve.pointsPlayerB">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseToSetWinners(elevenTwelve, elevenTwelve.playerB, 11)">
-                    W
-                </button>
-            </div>
-        </div>
-
-        <div class="loser-fiveSix ko-groups">
-            Platz 5 - 6
-            <div class="loser-fiveSix-match ko-matchup" ng-repeat="fiveSix in loserBracket.fiveSix">
-                <label ng-class="getClassForGroup(fiveSix.winPlayerA)">{{fiveSix.playerA.name}}</label>
-                <input ng-class="getClassForGroup(fiveSix.winPlayerA)" type="number" class="ko-phase-input"
-                       ng-model="fiveSix.pointsPlayerA">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseToSetWinners(fiveSix, fiveSix.playerA, 5)">
-                    W
-                </button>
-                </br>
-                <label ng-class="getClassForGroup(fiveSix.winPlayerB)">{{fiveSix.playerB.name}}</label>
-                <input ng-class="getClassForGroup(fiveSix.winPlayerB)" type="number" class="ko-phase-input"
-                       ng-model="fiveSix.pointsPlayerB">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseToSetWinners(fiveSix, fiveSix.playerB, 5)">
-                    W
-                </button>
-            </div>
-            Platz 9 - 10
-            <div class="loser-nineTen-match ko-matchup" ng-repeat="nineTen in loserBracket.nineTen">
-                <label ng-class="getClassForGroup(nineTen.winPlayerA)">{{nineTen.playerA.name}}</label>
-                <input ng-class="getClassForGroup(nineTen.winPlayerA)" type="number" class="ko-phase-input"
-                       ng-model="nineTen.pointsPlayerA">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseToSetWinners(nineTen, nineTen.playerA, 9)">
-                    W
-                </button>
-                </br>
-                <label ng-class="getClassForGroup(nineTen.winPlayerB)">{{nineTen.playerB.name}}</label>
-                <input ng-class="getClassForGroup(nineTen.winPlayerB)" type="number" class="ko-phase-input"
-                       ng-model="nineTen.pointsPlayerB">
-                <button type="button"
-                        ng-click="clickWinButtonKoPhaseToSetWinners(nineTen, nineTen.playerB, 9)">
-                    W
-                </button>
-            </div>
+    <div class="winner-half ko-groups">
+        Halbfinale
+        <div class="winner-half-match ko-matchup" ng-repeat="half in data.winnerBracket.half">
+            <label ng-class="getClassForGroup(half.winPlayerA)">{{half.playerA.name}}</label>
+            <input ng-class="getClassForGroup(half.winPlayerA)" type="number" class="ko-phase-input"
+                   ng-model="half.pointsPlayerA">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseHalf(half, half.playerA, half.playerB, $index)">W
+            </button>
+            </br>
+            <label ng-class="getClassForGroup(half.winPlayerB)">{{half.playerB.name}}</label>
+            <input ng-class="getClassForGroup(half.winPlayerB)" type="number" class="ko-phase-input"
+                   ng-model="half.pointsPlayerB">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseHalf(half, half.playerB, half.playerA, $index)">W
+            </button>
         </div>
     </div>
+    <div class="winner-final ko-groups">
+        Finale
+        <div class="winner-final-match ko-matchup" ng-repeat="final in data.winnerBracket.final">
+            <label ng-class="getClassForGroup(final.winPlayerA)">{{final.playerA.name}}</label>
+            <input ng-class="getClassForGroup(final.winPlayerA)" type="number" class="ko-phase-input"
+                   ng-model="final.pointsPlayerA">
+            <button type="button" ng-click="clickWinButtonKoPhaseFinals(final, final.playerA)">W</button>
+            </br>
+            <label ng-class="getClassForGroup(final.winPlayerB)">{{final.playerB.name}}</label>
+            <input ng-class="getClassForGroup(final.winPlayerB)" type="number" class="ko-phase-input"
+                   ng-model="final.pointsPlayerB">
+            <button type="button" ng-click="clickWinButtonKoPhaseFinals(final, final.playerB)">W</button>
+        </div>
+        Spiel um Platz 3
+        <div class="winner-third-match ko-matchup" ng-repeat="third in data.winnerBracket.third">
+            <label ng-class="getClassForGroup(third.winPlayerA)">{{third.playerA.name}}</label>
+            <input ng-class="getClassForGroup(third.winPlayerA)" type="number" class="ko-phase-input"
+                   ng-model="third.pointsPlayerA">
+            <button type="button" ng-click="clickWinButtonKoPhaseThird(third, third.playerA)">W</button>
+            </br>
+            <label ng-class="getClassForGroup(third.winPlayerB)">{{third.playerB.name}}</label>
+            <input ng-class="getClassForGroup(third.winPlayerB)" type="number" class="ko-phase-input"
+                   ng-model="third.pointsPlayerB">
+            <button type="button" ng-click="clickWinButtonKoPhaseThird(third, third.playerB)">W</button>
+        </div>
+    </div>
+</div>
+<div ng-show="data.koPhase === 'loser'">
+    <!--LOSER BRACKET-->
+    <div class="loser-fiveeight ko-groups">
+        Platz 5 - 8
+        <div class="loser-fiveeight-match ko-matchup" ng-repeat="fiveEight in data.loserBracket.fiveEight">
+            <label ng-class="getClassForGroup(fiveEight.winPlayerA)">{{fiveEight.playerA.name}}</label>
+            <input ng-class="getClassForGroup(fiveEight.winPlayerA)"
+                   class="ko-phase-input"
+                   type="number"
+                   ng-model="fiveEight.pointsPlayerA">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseFiveEight(fiveEight, fiveEight.playerA, fiveEight.playerB, $index)">
+                W
+            </button>
+            </br>
+            <label ng-class="getClassForGroup(fiveEight.winPlayerB)">{{fiveEight.playerB.name}}</label>
+            <input ng-class="getClassForGroup(fiveEight.winPlayerB)"
+                   class="ko-phase-input"
+                   type="number"
+                   ng-model="fiveEight.pointsPlayerB">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseFiveEight(fiveEight, fiveEight.playerB, fiveEight.playerA, $index)">
+                W
+            </button>
+        </div>
+        Platz 9 - 12 (Gruppen 3te)
+        <div class="loser-nineTwelve-match ko-matchup" ng-repeat="nineTwelve in data.loserBracket.nineTwelve">
+            <select ng-class="getClassForGroup(nineTwelve.winPlayerA)" ng-model="nineTwelve.playerA"
+                    ng-options="player.name for player in playerList"></select>
+            <input ng-class="getClassForGroup(nineTwelve.winPlayerA)"
+                   class="ko-phase-input"
+                   type="number"
+                   ng-model="nineTwelve.pointsPlayerA">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseNineTwelve(nineTwelve, nineTwelve.playerA, nineTwelve.playerB, $index)">
+                W
+            </button>
+            </br>
+            <select ng-class="getClassForGroup(nineTwelve.winPlayerB)" ng-model="nineTwelve.playerB"
+                    ng-options="player.name for player in playerList"></select>
+            <input ng-class="getClassForGroup(nineTwelve.winPlayerB)"
+                   class="ko-phase-input"
+                   type="number"
+                   ng-model="nineTwelve.pointsPlayerB">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseNineTwelve(nineTwelve, nineTwelve.playerB, nineTwelve.playerA, $index)">
+                W
+            </button>
+        </div>
+    </div>
+    <div class="loser-sevenEight ko-groups">
+        Platz 7 - 8
+        <div class="loser-sevenEight-match ko-matchup" ng-repeat="sevenEight in data.loserBracket.sevenEight">
+            <label ng-class="getClassForGroup(sevenEight.winPlayerA)">{{sevenEight.playerA.name}}</label>
+            <input ng-class="getClassForGroup(sevenEight.winPlayerA)" type="number" class="ko-phase-input"
+                   ng-model="sevenEight.pointsPlayerA">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseToSetWinners(sevenEight, sevenEight.playerA, 7)">
+                W
+            </button>
+            </br>
+            <label ng-class="getClassForGroup(sevenEight.winPlayerB)">{{sevenEight.playerB.name}}</label>
+            <input ng-class="getClassForGroup(sevenEight.winPlayerB)" type="number" class="ko-phase-input"
+                   ng-model="sevenEight.pointsPlayerB">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseToSetWinners(sevenEight, sevenEight.playerB, 7)">
+                W
+            </button>
+        </div>
+        Platz 11 - 12
+        <div class="loser-elevenTwelve-match ko-matchup" ng-repeat="elevenTwelve in data.loserBracket.elevenTwelve">
+            <label ng-class="getClassForGroup(elevenTwelve.winPlayerA)">{{elevenTwelve.playerA.name}}</label>
+            <input ng-class="getClassForGroup(elevenTwelve.winPlayerA)" type="number" class="ko-phase-input"
+                   ng-model="elevenTwelve.pointsPlayerA">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseToSetWinners(elevenTwelve, elevenTwelve.playerA, 11)">
+                W
+            </button>
+            </br>
+            <label ng-class="getClassForGroup(elevenTwelve.winPlayerB)">{{elevenTwelve.playerB.name}}</label>
+            <input ng-class="getClassForGroup(elevenTwelve.winPlayerB)" type="number" class="ko-phase-input"
+                   ng-model="elevenTwelve.pointsPlayerB">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseToSetWinners(elevenTwelve, elevenTwelve.playerB, 11)">
+                W
+            </button>
+        </div>
+    </div>
+
+    <div class="loser-fiveSix ko-groups">
+        Platz 5 - 6
+        <div class="loser-fiveSix-match ko-matchup" ng-repeat="fiveSix in data.loserBracket.fiveSix">
+            <label ng-class="getClassForGroup(fiveSix.winPlayerA)">{{fiveSix.playerA.name}}</label>
+            <input ng-class="getClassForGroup(fiveSix.winPlayerA)" type="number" class="ko-phase-input"
+                   ng-model="fiveSix.pointsPlayerA">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseToSetWinners(fiveSix, fiveSix.playerA, 5)">
+                W
+            </button>
+            </br>
+            <label ng-class="getClassForGroup(fiveSix.winPlayerB)">{{fiveSix.playerB.name}}</label>
+            <input ng-class="getClassForGroup(fiveSix.winPlayerB)" type="number" class="ko-phase-input"
+                   ng-model="fiveSix.pointsPlayerB">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseToSetWinners(fiveSix, fiveSix.playerB, 5)">
+                W
+            </button>
+        </div>
+        Platz 9 - 10
+        <div class="loser-nineTen-match ko-matchup" ng-repeat="nineTen in data.loserBracket.nineTen">
+            <label ng-class="getClassForGroup(nineTen.winPlayerA)">{{nineTen.playerA.name}}</label>
+            <input ng-class="getClassForGroup(nineTen.winPlayerA)" type="number" class="ko-phase-input"
+                   ng-model="nineTen.pointsPlayerA">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseToSetWinners(nineTen, nineTen.playerA, 9)">
+                W
+            </button>
+            </br>
+            <label ng-class="getClassForGroup(nineTen.winPlayerB)">{{nineTen.playerB.name}}</label>
+            <input ng-class="getClassForGroup(nineTen.winPlayerB)" type="number" class="ko-phase-input"
+                   ng-model="nineTen.pointsPlayerB">
+            <button type="button"
+                    ng-click="clickWinButtonKoPhaseToSetWinners(nineTen, nineTen.playerB, 9)">
+                W
+            </button>
+        </div>
+    </div>
+</div>
 
 </div>
 </div>
 
-<div ng-show="usedGroups.length <= 0">
+<div ng-show="data.usedGroups.length <= 0">
     Bitte weise den Spielern eine Gruppe zu um die Gruppenphase darstellen zu können.
 </div>
 
 
-<div ng-show="tournamentWinner" class="winner-announcement">
+<div ng-show="data.tournamentWinner" class="winner-announcement">
     AND THE WINNER IS:
     <b>{{tournamentWinner.name}}</b>
 </div>
