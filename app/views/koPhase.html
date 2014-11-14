@@ -17,7 +17,7 @@
         Viertelfinale
         <div class="winner-quaters-match ko-matchup" ng-repeat="quater in data.winnerBracket.quater">
             <select ng-class="getClassForGroup(quater.winPlayerA)" ng-model="quater.playerA"
-                    ng-options="player.name for player in playerList"></select>
+                    ng-options="player.name for player in data.playerList"></select>
             <input ng-class="getClassForGroup(quater.winPlayerA)"
                    class="ko-phase-input"
                    type="number"
@@ -27,7 +27,7 @@
             </button>
             </br>
             <select ng-class="getClassForGroup(quater.winPlayerB)" ng-model="quater.playerB"
-                    ng-options="player.name for player in playerList"></select>
+                    ng-options="player.name for player in data.playerList"></select>
             <input ng-class="getClassForGroup(quater.winPlayerB)"
                    class="ko-phase-input"
                    type="number"
@@ -110,7 +110,7 @@
         Platz 9 - 12 (Gruppen 3te)
         <div class="loser-nineTwelve-match ko-matchup" ng-repeat="nineTwelve in data.loserBracket.nineTwelve">
             <select ng-class="getClassForGroup(nineTwelve.winPlayerA)" ng-model="nineTwelve.playerA"
-                    ng-options="player.name for player in playerList"></select>
+                    ng-options="player.name for player in data.playerList"></select>
             <input ng-class="getClassForGroup(nineTwelve.winPlayerA)"
                    class="ko-phase-input"
                    type="number"
@@ -121,7 +121,7 @@
             </button>
             </br>
             <select ng-class="getClassForGroup(nineTwelve.winPlayerB)" ng-model="nineTwelve.playerB"
-                    ng-options="player.name for player in playerList"></select>
+                    ng-options="player.name for player in data.playerList"></select>
             <input ng-class="getClassForGroup(nineTwelve.winPlayerB)"
                    class="ko-phase-input"
                    type="number"
