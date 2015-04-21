@@ -10,13 +10,13 @@
 
     <div>
         <label>EXPORT</label>
-        <button type="button" ng-click="exportAll()">Exportieren</button>
-        <textarea ng-model="textForExport"></textarea>
+        <button type="button" ng-click="persistence.export.exportAll()">Exportieren</button>
+        <textarea ng-model="persistence.export.text"></textarea>
     </div>
 
     <div>
         <label>IMPORT</label>
-        <button type="button" ng-click="importAll($event)">importieren</button>
-        <textarea ng-model="textForImport"></textarea>
+        <button type="button" ng-click="persistence.import.importAll($event)">importieren</button>
+        <textarea ng-model="persistence.import.text"></textarea>
     </div>
 </div>

@@ -91,3 +91,7 @@ input.ko-phase-input {
     float: left;
     font-size: 30px;
 }
+
+span.groupselected {
+    background-color: black;
+}
