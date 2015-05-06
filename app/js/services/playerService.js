@@ -7,7 +7,7 @@ myModule.factory('PlayerService', function () {
             points: 0,
             winPoints: 0,
             position: data.maxPlayerId,
-            rank: 0,
+            rank: "n/a",
             id: data.maxPlayerId
         };
         data.maxPlayerId = data.maxPlayerId + 1;

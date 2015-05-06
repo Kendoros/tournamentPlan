@@ -45,6 +45,15 @@
                 }
             };
 
+            $scope.hasNoWinner = function () {
+                if ($scope.data.tournamentWinner) {
+                    return false;
+                } else {
+                    return true;
+                }
+
+            };
+
             $scope.addPlayer = function () {
                 $scope.data = PlayerService.addPlayer($scope.data);
             };
@@ -96,15 +105,33 @@
             $scope.data.displayGroupIndex = 0;
             $scope.data.selectedGroup = {};
 
+            $scope.initGroupPhase = function(){
+                setTimeout(function(){
+                    $scope.changeGroupTab(0);
+                },100);
+            };
+
             $scope.changeGroupTab = function (index) {
                 $scope.data = GroupPhaseService.setSelectedGroup($scope.data, index);
+            };
 
-
-
+            $scope.initKoPhase = function(){
+                setTimeout(function(){
+                    $scope.changeKoPhase(0);
+                },100);
             };
 
             $scope.data.koPhase = '';
             $scope.changeKoPhase = function (index) {
+                var allListButtons = $('.koList');
+                allListButtons.removeClass('selectedKoPhase');
+                for (var x = 0; x < allListButtons.length; x++) {
+                    var listButton = allListButtons[x];
+                    if (listButton.attributes['ng-click'].value === 'changeKoPhase(' + index + ')') {
+                        listButton.classList.add('selectedKoPhase');
+                    }
+                }
+
                 if (index === 0) {
                     $scope.data.koPhase = 'winner';
                 } else if (index === 1) {
@@ -300,9 +327,10 @@
                 }
             }();
 
-
+            $scope.changeTab(0);
         }
     ])
     ;
+
 
 })(angular);

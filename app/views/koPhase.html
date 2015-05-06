@@ -1,4 +1,4 @@
-<div>
+<div ng-init="initKoPhase()">
 <div ng-show="data.usedGroups.length > 0">
 <div ng-show="!data.koPhaseGenerated">
     <label>Gruppenphase abgeschlossen?</label>
@@ -6,8 +6,8 @@
 </div>
 <div ng-show="data.koPhaseGenerated">
 <ul class="menu">
-    <li><a href="#" class="listButton" ng-click="changeKoPhase(0)">Winner Bracket</a></li>
-    <li><a href="#" class="listButton" ng-click="changeKoPhase(1)">Loser Bracket</a></li>
+    <li><div class="listButton koList" ng-click="changeKoPhase(0)">Winner Bracket</div></li>
+    <li><div class="listButton koList" ng-click="changeKoPhase(1)">Loser Bracket</div></li>
 </ul>
 
 
@@ -208,14 +208,14 @@
                 W
             </button>
         </div>
-    </div>
+</div>
 </div>
 
 </div>
 </div>
 
 <div ng-show="data.usedGroups.length <= 0">
-    Bitte weise den Spielern eine Gruppe zu um die Gruppenphase da*rstellen zu können.
+    Bitte weise den Spielern eine Gruppe zu um die Gruppenphase darstellen zu können.
 </div>
 
 

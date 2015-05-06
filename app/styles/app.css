@@ -7,7 +7,6 @@ body.ng-scope {
 .innerFeature {
     margin-left: 10px;
     margin-right: 10px;
-    background: aliceblue;
 }
 
 .menu {
@@ -106,5 +105,8 @@ span.groupselected {
 }
 
 .listButton.selectedGroupItem {
+    background: #ff9077;
+}
+.listButton.selectedKoPhase {
     background: #ff9077;
 }

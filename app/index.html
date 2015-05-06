@@ -27,7 +27,7 @@
     <li><div class="listButton" ng-click="changeTab(0)">Spielerliste</div></li>
     <li><div class="listButton" ng-click="changeTab(1)">Gruppenphase</div></li>
     <li><div class="listButton" ng-click="changeTab(2)">KO-Phase</div></li>
-    <li><div class="listButton" ng-click="changeTab(3)">Endergebnis</div></li>
+    <li><div class="listButton" ng-click="changeTab(3)" ng-hide="hasNoWinner()">Endergebnis</div></li>
     <li><div class="listButton" ng-click="changeTab(4)">Konfiguration</div></li>
 </ul>
 
