@@ -1,5 +1,15 @@
 /* app css stylesheet */
 
+body.ng-scope {
+    background: ghostwhite;
+}
+
+.innerFeature {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: aliceblue;
+}
+
 .menu {
     list-style: none;
     border-bottom: 0.1em solid black;
