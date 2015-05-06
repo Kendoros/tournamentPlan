@@ -2,7 +2,7 @@
     <div ng-show="data.usedGroups.length > 0">
         <ul class="menu">
             <li ng-repeat="group in data.usedGroups">
-                <a href="#" ng-click="changeGroupTab($index)"><span ng-class="isGroupSelected(group)">Gruppe {{data.usedGroups[$index].code}}</span></a>
+                <div class="listButton groupList"ng-click="changeGroupTab($index)">Gruppe {{data.usedGroups[$index].code}}</div>
             </li>
         </ul>
 

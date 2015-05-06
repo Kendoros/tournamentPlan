@@ -24,15 +24,17 @@
 <h1><img id="logo" src="img/logo.png">Schönis Dartturnier</h1>
 
 <ul class="menu">
-    <li><a href="#" class="listButton" ng-click="changeTab(0)">Spielerliste</a></li>
-    <li><a href="#" class="listButton" ng-click="changeTab(1)">Gruppenphase</a></li>
-    <li><a href="#" class="listButton" ng-click="changeTab(2)">KO-Phase</a></li>
-    <li><a href="#" class="listButton" ng-click="changeTab(3)">Endergebnis</a></li>
-    <li><a href="#" class="listButton" ng-click="changeTab(4)">Konfiguration</a></li>
+    <li><div class="listButton" ng-click="changeTab(0)">Spielerliste</div></li>
+    <li><div class="listButton" ng-click="changeTab(1)">Gruppenphase</div></li>
+    <li><div class="listButton" ng-click="changeTab(2)">KO-Phase</div></li>
+    <li><div class="listButton" ng-click="changeTab(3)">Endergebnis</div></li>
+    <li><div class="listButton" ng-click="changeTab(4)">Konfiguration</div></li>
 </ul>
 
+
+
 <div>
-    <div ng-include src="template.url"></div>
+    <div class="innerFeature" ng-include src="template.url"></div>
 
 </div>
 <!-- In production use:

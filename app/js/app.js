@@ -55,6 +55,16 @@
 
             $scope.data.usedGroups = [];
             $scope.changeTab = function (tabNumber) {
+
+                var allListButtons = $('.listButton');
+                allListButtons.removeClass('selectedMenuItem');
+                for (var x = 0; x < allListButtons.length; x++) {
+                    var listButton = allListButtons[x];
+                    if (listButton.attributes['ng-click'].value === 'changeTab(' + tabNumber + ')') {
+                        listButton.classList.add('selectedMenuItem');
+                    }
+                }
+
                 $scope.data.selectedTab = 0;
                 $scope.data.selectedTab = tabNumber;
                 $scope.template = $scope.templates[$scope.data.selectedTab];
@@ -88,6 +98,9 @@
 
             $scope.changeGroupTab = function (index) {
                 $scope.data = GroupPhaseService.setSelectedGroup($scope.data, index);
+
+
+
             };
 
             $scope.data.koPhase = '';

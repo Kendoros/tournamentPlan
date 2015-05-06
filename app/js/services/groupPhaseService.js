@@ -5,6 +5,14 @@ myModule.factory('GroupPhaseService', function () {
         if (data.usedGroups && data.usedGroups[index]) {
             data.selectedGroup.groupAssignment = data.usedGroups[index].code;
         }
+        var allListButtons = $('.groupList');
+        allListButtons.removeClass('selectedGroupItem');
+        for (var x = 0; x < allListButtons.length; x++) {
+            var listButton = allListButtons[x];
+            if (listButton.textContent === 'Gruppe ' + data.usedGroups[index].code) {
+                listButton.classList.add('selectedGroupItem');
+            }
+        }
         return data;
     };
 
