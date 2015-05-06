@@ -7,7 +7,7 @@
         </ul>
 
         <div ng-show="data.selectedGroup">
-            <table>
+            <table class="groupTable">
                 <th>Name</th>
                 <th>Restpunkte</th>
                 <th>Siegpunkte</th>
@@ -26,7 +26,7 @@
             <div ng-repeat="group in data.groups | filter:data.selectedGroup:strict">
                 <div ng-repeat="match in group.matchups">
 
-                    <label ng-class="getClassForGroup(match.winPlayerA)">{{match.playerA.name}}</label>
+                    <label>{{match.playerA.name}}</label>
                     <button type="button" ng-click="clickWinButtonGroupPhase( match, match.playerA, group)">W
                     </button>
                     <input ng-class="getClassForGroup(match.winPlayerA)" class="group-phase-input" type="number" min="0"
@@ -43,7 +43,7 @@
                            ng-change="matchChange(group)"/>
                     <button type="button" ng-click="clickWinButtonGroupPhase( match, match.playerB, group)">W
                     </button>
-                    <label ng-class="getClassForGroup(match.winPlayerB)">{{match.playerB.name}}</label>
+                    <label>{{match.playerB.name}}</label>
 
                 </div>
             </div>

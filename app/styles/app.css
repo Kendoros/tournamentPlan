@@ -107,6 +107,14 @@ span.groupselected {
 .listButton.selectedGroupItem {
     background: #ff9077;
 }
+
 .listButton.selectedKoPhase {
     background: #ff9077;
+}
+
+table.groupTable th {
+    padding-right: 31px;
+    /* padding-bottom: 0px; */
+    /* margin-bottom: 10px; */
+    border-bottom: 1px solid black;
 }
