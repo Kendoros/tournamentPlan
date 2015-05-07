@@ -105,20 +105,20 @@
             $scope.data.displayGroupIndex = 0;
             $scope.data.selectedGroup = {};
 
-            $scope.initGroupPhase = function(){
-                setTimeout(function(){
+            $scope.initGroupPhase = function () {
+                setTimeout(function () {
                     $scope.changeGroupTab(0);
-                },100);
+                }, 100);
             };
 
             $scope.changeGroupTab = function (index) {
                 $scope.data = GroupPhaseService.setSelectedGroup($scope.data, index);
             };
 
-            $scope.initKoPhase = function(){
-                setTimeout(function(){
+            $scope.initKoPhase = function () {
+                setTimeout(function () {
                     $scope.changeKoPhase(0);
-                },100);
+                }, 100);
             };
 
             $scope.data.koPhase = '';
@@ -315,6 +315,26 @@
                 }
 
             }
+
+
+            function readSingleFile(evt) {
+                //Retrieve the first (and only!) File from the FileList object
+                var f = evt.target.files[0];
+
+                if (f) {
+                    var r = new FileReader();
+                    r.onload = function(e) {
+                        $scope.persistence.import.text = e.target.result;
+                    };
+                    r.readAsText(f);
+                } else {
+                    alert("Failed to load file");
+                }
+            }
+
+            $scope.initConfiguration = function () {
+                document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+            };
 
 
             // run on initialization

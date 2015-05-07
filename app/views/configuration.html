@@ -1,11 +1,10 @@
-<div>
+<div ng-init="initConfiguration()">
     <div>
         <label>Punktevergabe</label> <br/>
         <label>Sieg</label> <input type="number" ng-model="data.configuration.points.win"> <br/>
         <label>Unentschieden</label> <input type="number" ng-model="data.configuration.points.tie"> <br/>
         <label>Niederlage</label> <input type="number" ng-model="data.configuration.points.loose"> <br/>
     </div>
-
 
 
     <div>
@@ -15,8 +14,12 @@
     </div>
 
     <div>
-        <label>IMPORT</label>
+        <label>IMPORT</label></br>
+
+        Per Text oder aus File Importieren</br>
+        <textarea id="importText" ng-model="persistence.import.text"></textarea></br>
+        <input type="file" id="fileinput"/></br>
+        <a style="color:red">(Achtung bestehende Daten werden überschrieben!): </a>
         <button type="button" ng-click="persistence.import.importAll($event)">importieren</button>
-        <textarea ng-model="persistence.import.text"></textarea>
     </div>
 </div>
