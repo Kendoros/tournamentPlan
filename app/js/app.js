@@ -225,6 +225,17 @@
                 }
             };
 
+            $scope.clickWinButtonKoPhaseThirteenSixteen = function (thirteenSixteen, winner, loser, $index) {
+                MatchupService.getMatchResult(thirteenSixteen, winner);
+                if ($index === 0) {
+                    $scope.data.loserBracket.thirteenFourteen[0].playerA = winner;
+                    $scope.data.loserBracket.fifteenSixteen[0].playerA = loser;
+                } else if ($index === 1) {
+                    $scope.data.loserBracket.thirteenFourteen[0].playerB = winner;
+                    $scope.data.loserBracket.fifteenSixteen[0].playerB = loser;
+                }
+            };
+
             $scope.clickWinButtonKoPhaseToSetWinners = function (match, winner, rank) {
                 winner.rank = rank;
                 if (match.playerA === winner) {

@@ -19,6 +19,10 @@ myModule.factory('KOPhaseService', function () {
         data.loserBracket.fiveSix = createMatchupsForKo(1);
         data.loserBracket.nineTen = createMatchupsForKo(1);
 
+        data.loserBracket.thirteenSixteen = createMatchupsForKo(2);
+        data.loserBracket.thirteenFourteen = createMatchupsForKo(1);
+        data.loserBracket.fifteenSixteen = createMatchupsForKo(1);
+
         data.koPhaseGenerated = true;
         return data;
     };
